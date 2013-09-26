@@ -1,0 +1,39 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script type="text/javascript">
+            window.onload = function(){
+                $.ajax({
+                    url:'Api/service1/ids',
+                    success:function(response){
+                        $.ajax({
+                            url:'Api/service1',
+                            success:function(response){
+                                $('#responseText2')[0].innerHTML = 'welcome '+response.Name+' !';
+                            }
+                        });
+
+                        $('#responseText')[0].innerHTML ='';
+                        $.each(response.ids,function(index,itm){
+                            $('#responseText')[0].innerHTML += itm+'\n';
+                        });
+                        
+                    }
+                });
+               
+            }
+        </script>
+    </head>
+    <body>
+        TODO write content
+        <div id="responseText"></div>
+        <div id="responseText2"></div>
+    </body>
+</html>
