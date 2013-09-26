@@ -24,6 +24,13 @@ and open the template in the editor.
                         $.each(response.ids,function(index,itm){
                             $('#responseText')[0].innerHTML += itm+'\n';
                         });
+
+                        $.ajax({
+                            url:'Api/service2',
+                            success:function(response){
+                                $('#responseText3')[0].innerHTML = 'welcome '+response.Name+' !';
+                            }
+                        });
                         
                     }
                 });
@@ -32,8 +39,8 @@ and open the template in the editor.
         </script>
     </head>
     <body>
-        TODO write content
         <div id="responseText"></div>
         <div id="responseText2"></div>
+        <div id="responseText3"></div>
     </body>
 </html>
